@@ -85,7 +85,7 @@ export default function Swap() {
           <a href="/">
             <HomeIcon className="w-[30px] h-[30px] mt-[60px]" />
           </a>
-          <a href="https://www.discord.gg/K5g4M3XAgR">
+          <a href="https://discord.gg/8SwJUjjvZq">
             <img src={socialIconSrcMap.discord} className="w-[30px] h-[30px] mt-[60px]" />
           </a>
           <a href="https://twitter.com/Fanscee">
