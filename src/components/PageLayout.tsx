@@ -109,7 +109,8 @@ export default function PageLayout(props: {
       <main
         // always occupy scrollbar space
         className={twMerge(
-          `PageLayoutContent relative isolate flex-container grid-area-c bg-gradient-to-b from-[#0c0927] to-[#110d36] rounded-tl-3xl mobile:rounded-none p-12 ${props.contentButtonPaddingShorter ?? props.contentYPaddingShorter ? 'pb-4' : ''
+          `PageLayoutContent relative isolate flex-container grid-area-c bg-gradient-to-b from-[#0c0927] to-[#110d36] rounded-tl-3xl mobile:rounded-none p-12 ${
+            props.contentButtonPaddingShorter ?? props.contentYPaddingShorter ? 'pb-4' : ''
           } ${props.contentTopPaddingShorter ?? props.contentYPaddingShorter ? 'pt-5' : ''} mobile:py-2 mobile:px-3`,
           props.contentClassName
         )}
@@ -120,7 +121,7 @@ export default function PageLayout(props: {
       >
         {/* do not check ata currently
         <MigrateBubble /> */}
-        <VersionTooOldDialog />
+        {/* <VersionTooOldDialog /> */}
         {props.children}
       </main>
     </div>
@@ -487,16 +488,18 @@ function LinkItem({
     <Link
       href={href}
       noTextStyle
-      className={`group block py-2.5 mobile:py-2 px-4 mobile:px-1 rounded-xl mobile:rounded-lg hover:bg-[rgba(57,208,216,0.05)] ${isCurrentRoutePath ? 'bg-[rgba(57,208,216,0.1)]' : ''
-        }`}
+      className={`group block py-2.5 mobile:py-2 px-4 mobile:px-1 rounded-xl mobile:rounded-lg hover:bg-[rgba(57,208,216,0.05)] ${
+        isCurrentRoutePath ? 'bg-[rgba(57,208,216,0.1)]' : ''
+      }`}
     >
       <Row className="items-center">
         <div className="grid bg-gradient-to-br from-[rgba(57,208,216,0.2)] to-[rgba(57,208,216,0)] rounded-lg p-1.5 mr-3">
           <Icon size={isMobile ? 'xs' : 'sm'} iconSrc={icon} />
         </div>
         <Row
-          className={`grow items-center justify-between text-[#ACE3E5] ${isCurrentRoutePath ? 'text-[rgba(57,208,216,1)]' : ''
-            } text-sm mobile:text-xs font-medium`}
+          className={`grow items-center justify-between text-[#ACE3E5] ${
+            isCurrentRoutePath ? 'text-[rgba(57,208,216,1)]' : ''
+          } text-sm mobile:text-xs font-medium`}
         >
           <div>{children}</div>
           {isExternalLink && (
@@ -538,8 +541,9 @@ function OptionItem({
           heroIconName={heroIconName}
         />
         <span
-          className={`text-[#ACE3E5] text-sm mobile:text-xs font-medium flex-grow ${href ? 'group-hover:text-[rgba(57,208,216,1)]' : ''
-            }`}
+          className={`text-[#ACE3E5] text-sm mobile:text-xs font-medium flex-grow ${
+            href ? 'group-hover:text-[rgba(57,208,216,1)]' : ''
+          }`}
         >
           {children}
         </span>
@@ -571,8 +575,9 @@ function SettingPopover() {
       </Row>
       <Row className="gap-3 justify-between">
         <div
-          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${eq(slippageTolerance, 0.001) ? 'ring-1 ring-inset ring-[#39D0D8]' : ''
-            } cursor-pointer`}
+          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${
+            eq(slippageTolerance, 0.001) ? 'ring-1 ring-inset ring-[#39D0D8]' : ''
+          } cursor-pointer`}
           onClick={() => {
             useAppSettings.setState({ slippageTolerance: '0.001' })
           }}
@@ -580,8 +585,9 @@ function SettingPopover() {
           0.1%
         </div>
         <div
-          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${eq(slippageTolerance, 0.005) ? 'ring-1 ring-inset ring-[#39D0D8]' : ''
-            } cursor-pointer`}
+          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${
+            eq(slippageTolerance, 0.005) ? 'ring-1 ring-inset ring-[#39D0D8]' : ''
+          } cursor-pointer`}
           onClick={() => {
             useAppSettings.setState({ slippageTolerance: '0.005' })
           }}
@@ -589,8 +595,9 @@ function SettingPopover() {
           0.5%
         </div>
         <div
-          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${eq(slippageTolerance, 0.01) ? 'ring-1 ring-inset ring-[#39D0D8]' : ''
-            } cursor-pointer`}
+          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${
+            eq(slippageTolerance, 0.01) ? 'ring-1 ring-inset ring-[#39D0D8]' : ''
+          } cursor-pointer`}
           onClick={() => {
             useAppSettings.setState({ slippageTolerance: '0.01' })
           }}
@@ -598,10 +605,11 @@ function SettingPopover() {
           1%
         </div>
         <div
-          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${!(eq(slippageTolerance, 0.001) || eq(slippageTolerance, 0.005) || eq(slippageTolerance, 0.01))
-            ? 'ring-1 ring-inset ring-[#39D0D8]'
-            : ''
-            }`}
+          className={`py-1 px-3 bg-[#141041] rounded-full text-[#F1F1F2] font-medium text-sm ${
+            !(eq(slippageTolerance, 0.001) || eq(slippageTolerance, 0.005) || eq(slippageTolerance, 0.01))
+              ? 'ring-1 ring-inset ring-[#39D0D8]'
+              : ''
+          }`}
         >
           <Row>
             <Input
@@ -621,8 +629,9 @@ function SettingPopover() {
       </Row>
       {(slippageToleranceState === 'invalid' || slippageToleranceState === 'too small') && (
         <div
-          className={`mt-4 mobile:mt-6 ${slippageToleranceState === 'invalid' ? 'text-[#DA2EEF]' : 'text-[#D8CB39]'
-            } text-xs mobile:text-sm`}
+          className={`mt-4 mobile:mt-6 ${
+            slippageToleranceState === 'invalid' ? 'text-[#DA2EEF]' : 'text-[#D8CB39]'
+          } text-xs mobile:text-sm`}
         >
           {slippageToleranceState === 'invalid'
             ? 'Please enter a valid slippage percentage'
@@ -787,8 +796,9 @@ function RpcConnectionFace() {
         >
           {currentEndPoint
             ? isLoading
-              ? `RPC (${(loadingCustomizedEndPoint?.name ?? extractConnectionName(loadingCustomizedEndPoint?.url ?? '')) || ''
-              })`
+              ? `RPC (${
+                  (loadingCustomizedEndPoint?.name ?? extractConnectionName(loadingCustomizedEndPoint?.url ?? '')) || ''
+                })`
               : `RPC (${(currentEndPoint?.name ?? extractConnectionName(currentEndPoint.url)) || ''})`
             : '--'}
         </span>
@@ -832,10 +842,11 @@ function RpcConnectionPanelPopover({ close: closePanel }: { close: () => void })
             >
               <Row className="items-center w-full">
                 <Row
-                  className={`${isCurrentEndPoint
-                    ? 'text-[rgba(255,255,255,0.85)]'
-                    : 'hover:text-white active:text-white text-white cursor-pointer'
-                    } items-center w-full`}
+                  className={`${
+                    isCurrentEndPoint
+                      ? 'text-[rgba(255,255,255,0.85)]'
+                      : 'hover:text-white active:text-white text-white cursor-pointer'
+                  } items-center w-full`}
                 >
                   {endPoint.name ?? '--'}
                   {endPoint.url === autoChoosedEndPoint?.url && <Badge className="self-center ml-2">recommended</Badge>}
@@ -874,12 +885,13 @@ function RpcConnectionPanelPopover({ close: closePanel }: { close: () => void })
         <Row className="border-[rgba(171,196,255,0.05)] items-center gap-3 p-4 mobile:py-4 mobile:px-2">
           <Input
             value={userCostomizedUrlText}
-            className={`px-2 py-2 border-1.5 flex-grow ${switchConnectionFailed
-              ? 'border-[#DA2EEF]'
-              : userCostomizedUrlText === currentEndPoint?.url
+            className={`px-2 py-2 border-1.5 flex-grow ${
+              switchConnectionFailed
+                ? 'border-[#DA2EEF]'
+                : userCostomizedUrlText === currentEndPoint?.url
                 ? 'border-[rgba(196,214,255,0.8)]'
                 : 'border-[rgba(196,214,255,0.2)]'
-              } rounded-xl min-w-[7em]`}
+            } rounded-xl min-w-[7em]`}
             inputClassName="font-medium text-[rgba(196,214,255,0.5)] placeholder-[rgba(196,214,255,0.5)]"
             placeholder="https://"
             onUserInput={(searchText) => {

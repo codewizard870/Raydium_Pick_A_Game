@@ -17,7 +17,12 @@ import { useSwapAmountCalculator } from '@/application/swap/useSwapAmountCalcula
 import useSwapInitCoinFiller from '@/application/swap/useSwapInitCoinFiller'
 import useSwapUrlParser from '@/application/swap/useSwapUrlParser'
 import {
-  isQuantumSOLVersionSOL, isQuantumSOLVersionWSOL, SOL_BASE_BALANCE, SOLDecimals, toUITokenAmount, WSOLMint
+  isQuantumSOLVersionSOL,
+  isQuantumSOLVersionWSOL,
+  SOL_BASE_BALANCE,
+  SOLDecimals,
+  toUITokenAmount,
+  WSOLMint
 } from '@/application/token/quantumSOL'
 import { SplToken } from '@/application/token/type'
 import useToken, { RAYDIUM_MAINNET_TOKEN_LIST_NAME } from '@/application/token/useToken'
@@ -98,14 +103,14 @@ export default function Swap() {
         <div className="flex mobile:flex-col flex-row w-full">
           <div className="flex flex-col w-full justify-center items-center">
             <span className="text-[60px] mobile:text-[40px] text-center">
-              <span style={{ color: "rgb(254, 206, 0)" }}>Pick-a-Hand Game</span> Coming Soon
+              <span style={{ color: 'rgb(254, 206, 0)' }}>Pick-a-Hand Game</span> Coming Soon
             </span>
             <img src="/logo.webp" className="w-full" />
             <span className="text-[40px] mobile:text-[20px] text-center">
-              <span style={{ color: "purple" }}>Pick a hand</span> with a 50/50 chance of 2x your bet each time!
+              <span style={{ color: 'purple' }}>Pick a hand</span> with a 50/50 chance of 2x your bet each time!
             </span>
           </div>
-          <PageLayout mobileBarTitle="Swap" metaTitle="Swap - Raydium">
+          <PageLayout mobileBarTitle="Fanscee" metaTitle="Fanscee">
             {/* <SwapHead /> */}
             <SwapCard />
             {/* <UnwrapWSOL /> */}
@@ -311,14 +316,16 @@ function SwapCard() {
         {/* swap button */}
         <div className="relative h-8">
           <Row
-            className={`absolute items-center transition-all ${executionPrice ? 'left-4' : 'left-1/2 -translate-x-1/2'
-              }`}
+            className={`absolute items-center transition-all ${
+              executionPrice ? 'left-4' : 'left-1/2 -translate-x-1/2'
+            }`}
           >
             <Icon
               size="sm"
               iconSrc="/icons/msic-swap.svg"
-              className={`p-2 frosted-glass frosted-glass-teal rounded-full mr-4 ${isApprovePanelShown ? 'not-clickable' : 'clickable'
-                } select-none transition`}
+              className={`p-2 frosted-glass frosted-glass-teal rounded-full mr-4 ${
+                isApprovePanelShown ? 'not-clickable' : 'clickable'
+              } select-none transition`}
               onClick={() => {
                 if (isApprovePanelShown) return
                 toggleUISwap()
@@ -578,8 +585,8 @@ function SwapPriceAcceptChip() {
         prevFocusOppositeSideCoin != null && prevFocusOppositeSideCoin !== focusOppositeSideCoin
       const isFocusOppositeSideAmountChanged = Boolean(
         focusOppositeSideAmount &&
-        isMeaningfulNumber(prevFocusOppositeSideAmount) &&
-        !eq(prevFocusOppositeSideAmount, focusOppositeSideAmount)
+          isMeaningfulNumber(prevFocusOppositeSideAmount) &&
+          !eq(prevFocusOppositeSideAmount, focusOppositeSideAmount)
       )
       const isDirectionReversedChanged = prevDirectionReversed != null && prevDirectionReversed !== directionReversed
 
@@ -704,8 +711,9 @@ function SwapCardPriceIndicator({ className }: { className?: string }) {
       <FadeIn>
         {priceImpact ? (
           <div
-            className={`font-medium text-xs whitespace-nowrap ${isDangerousPrice ? 'text-[#DA2EEF]' : isWarningPrice ? 'text-[#D8CB39]' : 'text-[#39D0D8]'
-              } transition-colors`}
+            className={`font-medium text-xs whitespace-nowrap ${
+              isDangerousPrice ? 'text-[#DA2EEF]' : isWarningPrice ? 'text-[#D8CB39]' : 'text-[#39D0D8]'
+            } transition-colors`}
           >
             {isDangerousPrice || isWarningPrice ? 'Price Impact Warning' : 'Low Price Impact'}
           </div>
@@ -746,8 +754,9 @@ function SwapCardInfo({ className }: { className?: string }) {
           ? routes[0].source === 'serum'
             ? 'Serum Market'
             : 'Raydium Pool'
-          : `${upCoin?.symbol} → ${getToken(getRouteMiddleToken({ routes, upCoin, downCoin }))?.symbol} → ${downCoin?.symbol
-          }`
+          : `${upCoin?.symbol} → ${getToken(getRouteMiddleToken({ routes, upCoin, downCoin }))?.symbol} → ${
+              downCoin?.symbol
+            }`
         : undefined
       : undefined
 
@@ -757,9 +766,10 @@ function SwapCardInfo({ className }: { className?: string }) {
   return (
     <Col
       className={twMerge(
-        `py-4 px-6 flex-grow border-1.5  ${isDangerousPrice
-          ? 'border-[#DA2EEF]'
-          : isWarningPrice
+        `py-4 px-6 flex-grow border-1.5  ${
+          isDangerousPrice
+            ? 'border-[#DA2EEF]'
+            : isWarningPrice
             ? 'border-[rgba(216,203,57,.5)]'
             : 'border-[rgba(171,196,255,.5)]'
         } rounded-xl items-center gap-3 transition-colors`,
@@ -826,8 +836,9 @@ function SwapCardInfo({ className }: { className?: string }) {
             />
             <SwapCardItem
               fieldName="Swap Fee"
-              tooltipContent={`Of the 0.25% swap fee, 0.22% goes to LPs and 0.03% is used to buy back RAY.${isStable ? ' For stable swaps, the 0.02% fee goes to LPs.' : ''
-                } `}
+              tooltipContent={`Of the 0.25% swap fee, 0.22% goes to LPs and 0.03% is used to buy back RAY.${
+                isStable ? ' For stable swaps, the 0.02% fee goes to LPs.' : ''
+              } `}
               fieldValue={
                 fee ? (
                   <Col>
@@ -844,7 +855,7 @@ function SwapCardInfo({ className }: { className?: string }) {
                   '--'
                 )
               }
-            // tooltipContent="The difference between the market price and estimated price due to trade size"
+              // tooltipContent="The difference between the market price and estimated price due to trade size"
             />
           </Col>
         </Collapse.Body>
@@ -1020,8 +1031,9 @@ function KLineChart() {
   )
   return (
     <Card
-      className={`flex ${isLine1BoxReady || isLine2BoxReady ? 'visible' : 'invisible'
-        } flex-col mt-10 p-2 w-[min(456px,100%)] self-center bg-cyberpunk-card-bg`}
+      className={`flex ${
+        isLine1BoxReady || isLine2BoxReady ? 'visible' : 'invisible'
+      } flex-col mt-10 p-2 w-[min(456px,100%)] self-center bg-cyberpunk-card-bg`}
       size="lg"
     >
       <div ref={kline1Box}>
@@ -1093,8 +1105,9 @@ function KLineChartItem({
           <Col className="items-start mobile:items-center mobile:justify-self-center ml-8  mobile:ml-0 w-8">
             <div className="text-xs font-medium text-[rgba(171,196,255,0.5)]">24H%</div>
             <div
-              className={`text-sm font-medium ${isPositive ? 'text-[#39D0D8]' : isNegative ? 'text-[#DA2EEF]' : 'text-[#abc4ff]'
-                }`}
+              className={`text-sm font-medium ${
+                isPositive ? 'text-[#39D0D8]' : isNegative ? 'text-[#DA2EEF]' : 'text-[#abc4ff]'
+              }`}
             >
               {toPercentString(floatPercent, { alwaysSigned: true })}
             </div>

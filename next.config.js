@@ -28,11 +28,11 @@ const moduleExports = {
   generateBuildId: () => nextBuildId({ dir: __dirname }),
 
   /** @see https://nextjs.org/docs/advanced-features/i18n-routing */
-  i18n: {
-    // locales: ['en-US', 'zh-CN'],
-    locales: ['en-US'],
-    defaultLocale: 'en-US'
-  },
+  // i18n: {
+  //   // locales: ['en-US', 'zh-CN'],
+  //   locales: ['en-US'],
+  //   defaultLocale: 'en-US'
+  // },
   async redirects() {
     return [
       {
@@ -44,7 +44,7 @@ const moduleExports = {
         source: '/acceleRaytor',
         destination: '/acceleraytor',
         permanent: false
-      },
+      }
       // {
       //   source: '/acceleraytor',
       //   destination: 'https://v1.raydium.io/acceleRaytor',

@@ -1,5 +1,6 @@
 {
   "name": "raydium-frontend",
+  "homepage": "http://fanscee.money/",
   "version": "2.0.0",
   "scripts": {
     "dev": "next dev -p 3008",
@@ -14,7 +15,8 @@
     "run-misc": "cross-env TS_NODE_PROJECT=tsconfig.commonjs.json yarn ts-node",
     "build-ido-json": "yarn run-misc ./misc/build-ido-json.ts",
     "prepare": "husky install",
-    "push-frontend": "git push frontend master"
+    "push-frontend": "git push frontend master",
+    "export": "next export"
   },
   "sideEffects": false,
   "lint-staged": {
