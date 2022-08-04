@@ -84,46 +84,45 @@ export default function Swap() {
   return (
     <SwapUIContextProvider>
       <SwapEffect />
-      <div className="flex flex-col w-full">
-        <div className="flex w-full mt-8 justify-center">
-          <span className="text-[20px] mobile:text-[20px] text-center">Earn SOL daily by staking your FANSCEE</span>
+
+      <div className="flex flex-row w-full">
+        <div className="flex flex-col h-screen mobile:px-2 px-4 justify-center items-center">
+          <img src="/logo.webp" width="60px" height="60px" />
+          <a href="/">
+            <HomeIcon className="w-[30px] h-[30px] mt-[60px]" />
+          </a>
+          <a href="https://discord.gg/8SwJUjjvZq">
+            <img src={socialIconSrcMap.discord} className="w-[30px] h-[30px] mt-[60px]" />
+          </a>
+          <a href="https://twitter.com/Fanscee">
+            <img src={socialIconSrcMap.twitter} className="w-[30px] h-[30px] mt-[60px]" />
+          </a>
+          <a href="https://magiceden.io/marketplace/dustcrashcoinflip">
+            <img src="/magicEden.webp" className="w-[30px] h-[30px] mt-[60px]" />
+          </a>
         </div>
-        <div className="flex flex-row w-full">
-          <div className="flex flex-col h-screen mobile:px-2 px-4 justify-center items-center">
-            <img src="/logo.webp" width="60px" height="60px" />
-            <a href="/">
-              <HomeIcon className="w-[30px] h-[30px] mt-[60px]" />
-            </a>
-            <a href="https://discord.gg/8SwJUjjvZq">
-              <img src={socialIconSrcMap.discord} className="w-[30px] h-[30px] mt-[60px]" />
-            </a>
-            <a href="https://twitter.com/Fanscee">
-              <img src={socialIconSrcMap.twitter} className="w-[30px] h-[30px] mt-[60px]" />
-            </a>
-            <a href="https://magiceden.io/marketplace/dustcrashcoinflip">
-              <img src="/magicEden.webp" className="w-[30px] h-[30px] mt-[60px]" />
-            </a>
+        <div className="flex mobile:flex-col flex-row w-full">
+          <div className="flex flex-col w-full justify-center items-center">
+            <span className="text-[60px] mobile:text-[40px] text-center">
+              <span style={{ color: 'rgb(254, 206, 0)' }}>Pick-a-Hand Game</span> Coming Soon
+            </span>
+            <img src="/logo.webp" className="w-full" />
+            <span className="text-[40px] mobile:text-[20px] text-center">
+              <span style={{ color: 'purple' }}>Pick a hand</span> with a 50/50 chance of 2x your bet each time!
+            </span>
           </div>
-          <div className="flex mobile:flex-col flex-row w-full">
-            <div className="flex flex-col w-full justify-center items-center">
-              <span className="text-[60px] mobile:text-[40px] text-center">
-                <span style={{ color: 'rgb(254, 206, 0)' }}>Pick-a-Hand Game</span> Coming Soon
-              </span>
-              <img src="/logo.webp" className="w-full" />
-              <span className="text-[40px] mobile:text-[20px] text-center">
-                <span style={{ color: 'purple' }}>Pick a hand</span> with a 50/50 chance of 2x your bet each time!
-              </span>
-            </div>
-            <PageLayout mobileBarTitle="Fanscee" metaTitle="Fanscee">
-              {/* <SwapHead /> */}
-              <SwapCard />
-              <span className="text-[20px] mobile:text-[20px] text-center">
-                FANSCEE token address: 9fMyhPXLMdnCcZFVPkLqtNCy4CHTGY5Z8HMzKnR58pNy
-              </span>
-              {/* <UnwrapWSOL /> */}
-              {/* <KLineChart /> */}
-            </PageLayout>
-          </div>
+          <PageLayout mobileBarTitle="Fanscee" metaTitle="Fanscee">
+            {/* <SwapHead /> */}
+            <span className="text-[15px] mobile:text-[15px] text-center mt-6 mb-6 break-words">
+              FANSCEE token address: 9fMyhPXLMdnCcZFVPkLqtNCy4CHTGY5Z8HMzKnR58pNy
+            </span>
+            <SwapCard />
+            <span className="text-[15px] mobile:text-[15px] text-center mt-6">
+              Earn SOL daily by staking your FANSCEE
+            </span>
+            {/* <UnwrapWSOL /> */}
+            {/* <KLineChart /> */}
+          </PageLayout>
         </div>
       </div>
     </SwapUIContextProvider>
